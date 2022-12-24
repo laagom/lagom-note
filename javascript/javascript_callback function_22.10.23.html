@@ -1,0 +1,49 @@
+<script>
+
+    document.querySelector('.button').addEventListener('click', function(){
+        alert('버튼을 클릭한 후 이 실행문이 나올겁니다.')
+    })
+
+    setTimeout(function(){
+        console.log('1초 후에 이런 코드 실행해주세요.')
+    }, 1000)
+
+    document.querySelector('.button').addEventListener('click', add(a, b))
+
+    function add(a, b){
+        return a + b
+    }
+
+    function first(파라미터){
+        console.log(1)
+        파라미터()
+    }
+    
+    function second(){
+        console.log(2)
+    }
+
+    // first함수 안의 코드 실행해주세요. 그런데 파라미터에 second를 넣을게요
+    first(second)
+
+    first()
+    console.log(2)
+
+    first(function(){
+        console.log(1)
+    })
+    first(function(){
+        console.log(2)
+    })
+
+    db.collection('post').findOne(A, function(){
+        db.collection('post').findOne(B, function(){
+            db.collection('post').findOne(C, function(){
+        
+            })
+        })
+    })
+
+    db.collection('post').findOne(A).then()
+
+</script>
