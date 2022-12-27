@@ -1,4 +1,6 @@
 # [22.11.17] Change method of REST API (GET -> POST)
+[티스토리 블로그](https://laagom.tistory.com/39)
+
 Python 부트캠프 교육 과정을 수료하며 배운 Pure Django로 프로젝트를 진행하지 않고 백엔드와 프론트가 분리된 REST API 방식의 DRF(Django Rest Framework) 프레임워크를 사용하여 프로젝트를 진행하기로 하였다.
 
 <br>
@@ -51,7 +53,7 @@ function saveSitebyToolbar () {
 <br>
 
 ### 🔖 path 파라매터 -> request body 파라매터 변경
-현재 path 파라매터롤 값을 보내고 있는데 request body 파라매터로 변경작업을 해주겠다.
+현재 path 파라매터로 값을 보내고 있는데 request body 파라매터로 변경작업을 해주겠다.
 ```javascript
 function saveSitebyToolbar () {
     /* toolbar URL 저장 클릭 이벤트 */
@@ -78,6 +80,7 @@ function saveSitebyToolbar () {
 <br>
 
 ### 🔖 클라이언트
+아래와 같이 클라이언트 화면에서 url 입력 후 추가버튼을 클릭 시 이벤트가 발생한다.
 ![Untitled](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/aac32b0f-3662-4ea2-baf9-c893f6ff8419/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20221227%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20221227T082551Z&X-Amz-Expires=86400&X-Amz-Signature=c71daf1225760a8eac1c14bfaad3d4285669d51a82eea11097032f7b23fdebe0&X-Amz-SignedHeaders=host&response-content-disposition=filename%3D%22Untitled.png%22&x-id=GetObject)
 
 ### 🔖 오류
@@ -387,4 +390,4 @@ url: str = self.request.data.get('url')
 
 <br>
 
-이후에는 CSRF토큰, REST Api vs RESTful, DRF를 사용하는 이유에 대해 정리를 해보겠다. 
+이후에는 CSRF토큰, REST Api vs RESTful, DRF를 사용하는 이유에 대해 정리를 해보겠다.
