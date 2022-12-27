@@ -382,3 +382,9 @@ url: str = self.request.data.get('url')
 
 ## 5. 결과
 ![Untitled](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/9c44013a-dd4d-4a46-af09-2b446fa8b151/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20221227%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20221227T095737Z&X-Amz-Expires=86400&X-Amz-Signature=34100cb5db45abf40c627ddc5a96f4e70e4095b88316cd70ec807e3be427dcba&X-Amz-SignedHeaders=host&response-content-disposition=filename%3D%22Untitled.png%22&x-id=GetObject)
+
+"GET"방식을 "POST"방식으로 변경하는 과정을 한번에 수정하여 확인해도 되지만 내가 작성한 코드를 순차적으로 확인해볼 필요가 있어 상세하게 분할하여 단계적으로 발생한 이슈사항들을 정리하였다. 다음의 REST Api 요청을 RESTful하게 규격과 규칙을 지켜 이러한 변경하는 작업을 다시 하지 않게 주의하며 작업을 진행해야 겠다고 느꼈다.
+
+<br>
+
+이후에는 CSRF토큰, REST Api vs RESTful, DRF를 사용하는 이유에 대해 정리를 해보겠다. 
