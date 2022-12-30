@@ -201,7 +201,7 @@ npm이란 "Node Package Manage"라고 하는 node 패키지 관리자라고 하�
 
 node에 이미 사용할 수 있는 모듈은 수도 없이 많은데 아래 통계를 보면 npm의 모듈 개수가 압도적으로 많은 것을 확인 할 수 있다.
 
-### figlet 사용하기 (임의 모듈 학습-건너띄어도 무관)
+### figlet 사용하기 (임의 모듈 학습-건너뛰어도 무관)
 figlet은 아래와 같이 텍스트를 이용하여 그림을 표현하는 "아스키 아트"라는 것을 사용하게 해주는 모듈이다. 해당 설명은 아래 그림과 같이 설치하는 명령어와 간단한 사용 코드가 나와 있으니 따라해 보자.
 
 ![Untitled](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/38dfbc20-9595-4975-8d19-3b57cd10473c/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20221230%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20221230T125703Z&X-Amz-Expires=86400&X-Amz-Signature=995ea591fae6d87f47ee00da14c680da30ba3df5ecfd92ba61a681a891899a60&X-Amz-SignedHeaders=host&response-content-disposition=filename%3D%22Untitled.png%22&x-id=GetObject)|![Untitled](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/275fb759-547e-4b39-87f8-f7ce8591f3c1/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20221230%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20221230T130239Z&X-Amz-Expires=86400&X-Amz-Signature=e6cb636f46cd726341d0283f6690850d7654c6cf8cf33b976460e56e57e55b91&X-Amz-SignedHeaders=host&response-content-disposition=filename%3D%22Untitled.png%22&x-id=GetObject)
@@ -477,6 +477,8 @@ http://localhost:3000/sound/나
 
 "알수없음!!"
 ```
+
+<br>
 
 ## CORS이슈
 
