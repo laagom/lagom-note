@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cors 이슈 해결</title>
+</head>
+<body>
+    <input type="text" id="name">
+    <button onclick="getSound()">API 요청</button>
+    <script>
+        function getSound() {
+            const name = document.getElementById('name').value
+            fetch(`http://localhost:3000/sound/${name}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                document.getElementById('name').value = data
+            })
+        }
+    </script>
+</body>
+</html>

@@ -41,7 +41,8 @@ $ brew install nvm
  협업을 할 때, 또는 다양한 프로젝트를 동시에 진행해야 할 때 다양한 라이브러리 / 프레임워크 / 개발툴의 버전 호환 문제를 겪기때문이다. NVM을 사용하면 여러 이점이 있는데 아래와 같다.<br>
  1. 컴퓨터에 다양한 버전의 Node.js를 설치할 수 있게 해준다.
  2. use 커맨드를 이용해 사용할 Node 버전으로 간단하게 스위칭할 수 있게 해준다.
- 3. 디폴트 버전을 설정하거나 / 설치한 버전들의 전체 리스트를 확인하거나 / 필요 없는 버전을 삭제하는 등 소위 버전 관리가 쉬워진다.
+ 3. 디폴트 버전을 설정하거나 / 설치한 버전들의 전체 리스트를 확인하거나 / 필요 없는 버전을 삭제하는 등 소위 버전 관리가 쉬워진다.<br>
+
  루비의 rvm, rbenv나 파이썬의 pyenv와 같은 역할을 한다.
  
 <br>
@@ -159,6 +160,8 @@ $ nvm alias default node
 ![Untitled](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/b99c0199-6def-469b-995b-3ffd4815076a/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20221230%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20221230T121841Z&X-Amz-Expires=86400&X-Amz-Signature=199298ab637b8fd5da554dc0b4b15ae17d3d0142e75d26c182ba6eb0690bf342&X-Amz-SignedHeaders=host&response-content-disposition=filename%3D%22Untitled.png%22&x-id=GetObject)
 
 이제 로컬 컴퓨터에서는 그런 환경이 갖춰져있지 않다가 이제 Node.js를 설치했기 때문에 실행할 수 있게 되었다.
+
+<br>
 
 ## Node.js를 이용하여 javascript 사용해보기
 ```javascript
@@ -354,11 +357,182 @@ app.listen(port, () => {
 <h3 style='color:orange;'>Point!!</h3>
 '/cat'라우팅에서 html형식의 문자열을 보내면 화면에 h1 태그가 적용되며 화면에 출력되는 것을 확인 할 수 있을 것이다. 여기서 우리는 res.send()에 html도 사용이 가능한 사실을 알 수 있다.
 
+<br>
 
+## response에 변수를 담아 보내기
+### GET: params, query
+![Untitled](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/c77cd6bb-a755-41f0-ab2d-bce1517b74d6/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20221230%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20221230T143937Z&X-Amz-Expires=86400&X-Amz-Signature=d894c0ecad4a8d70fb42670c0b588cefa1940da2e2b120adebfaae657850bf99&X-Amz-SignedHeaders=host&response-content-disposition=filename%3D%22Untitled.png%22&x-id=GetObject)|![Untitled](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/17b88207-79ef-4ec9-ac64-d7599a95e280/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20221230%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20221230T144042Z&X-Amz-Expires=86400&X-Amz-Signature=47e12f83f96844c181e942cadb0c7b160341b2e35f00e3ee2f86d78b1792c17a&X-Amz-SignedHeaders=host&response-content-disposition=filename%3D%22Untitled.png%22&x-id=GetObject)
+--- | --- |
 
+위의 그림의 브라우저 경로를 보면 youtube.com/[유튜브 계정 명칭]으로 주소가 설정되어 있다. 하지만 유튜브를 개발할때 모든 유튜브 계정에 위와 같이 api를 만들지는 않았을 것이다. 해당 계정에 접속하는 이벤트가 이루어졌을 때 해당하는 계정 명칭의 id값이 라우팅에 param으로 보내졌고 동일한 api로 들어와 param값으로 조회되는 로직을 분기처리했을 거라고 예상한다
 
+그러면 우리는 브라우저 url에 param으로 id를 보내고 param값에 따라 다른 문자열이 출력되는 api 라우팅을 작성해 보자.
 
+<br>
 
+### param
+ ```javascript
+const express = require('express')
+const app = express()
+const port = 3000
 
+app.get('/user/:id', (req, res) => {
+    const param = req.params
+    console.log(param)
+    console.log(param.id)
 
+    res.json({'animal': param.id})
+})
 
+app.listen(port, () => {
+    console.log(`Example app listening on port ${port}`)
+})
+```
+위의 로직은 '/user/:id'와 같이 라우팅을 설정하여 [id]에 대한 param 받을 수 있게 작성하였다. 그리고 받은 param을 화면에 출력되게 param.id로 param에 담겨있는 id 값을 꺼내서 json형식으로 response에 보내주었다.
+
+```bash
+# 브라우저 주소
+http://localhost:3000/user/고양이
+```
+와 같이 브라우저에 주소값을 입력하면 아래와 같이 출력되는 것을 볼 수 있다. /user/:id 뒤에 붙은 id라는 param값이 api를 거쳐서 출력되게 구현한 것이다. 물론 해당 api에서 db처리가 되지 않지만 param에 따라 다른 결과가 다르게 구현이 되는것을 확인하였다.
+```bash
+# 결과
+{"animal":"고양이"}
+```
+
+<br>
+
+### query
+위에서는 param을 이용해서 라우팅을 이용했다면 이번에는 query를 이용하여 request로 요청한 결과를 출력해보겠다.
+```javascript
+const express = require('express')
+const app = express()
+const port = 3000
+
+app.get('/user/query', (req, res) => {
+    const query = req.query
+    console.log(query)
+
+    res.json(query)
+})
+
+app.listen(port, () => {
+    console.log(`Example app listening on port ${port}`)
+})
+```
+위와 같이 보낼때 마다 param값이 변하는게 아니라 query를 통해서 결과값을 다르게 출력을 하게 코드를 작성해 보았다.
+```bash
+http://localhost:3000/user/query?name=Lagom&age=31&addr=Seoul
+```
+위와 같이 /user/query로 라우팅을 설정하고 뒤에 ?name=Lagom&age=31&addr=Seoul으로 쿼리를 설정하여 보내게 되면 화면에는 아래와 같이 url로 보낸 query값이 출력되는 것을 확인 할 수 있다.
+```bash
+{"name":"Lagom","age":"31","addr":"Seoul"}
+```
+
+<br>
+
+## name에 따라 다른 sound값을 출력하기
+### GET /sound/:name
+이전에는 이력한 url의 param값, 즉 id값을 다르게 입력하면 입력한 id값이 출력되게 구현을 하였다. 이번에는 전달받은 param값에 따라 출력되는 값을 param값이 아닌 다른 값으로 보여지게 코드를 구현해 보겠다.
+```javascript
+const express = require('express')
+const app = express()
+const port = 3000
+
+app.get('/sound/:name', (req, res) => {
+    const { name } = req.params
+
+    if(name == 'dog') {
+        res.json('멍멍')
+    }else if(name == 'cat') {
+        res.json('야옹')
+    }else if(name == 'pig') {
+        res.json('꿀꿀')
+    }else{
+        res.json('알수 없음!!')
+    }
+})
+
+app.listen(port, () => {
+    console.log(`Example app listening on port ${port}`)
+})
+```
+위와 같이 전달받은 param에 대한 name값을 변수로 할당하여 변수로 dog, cat, pig, 그 외로 하여 분기를 걸어 결과값을 다르게 출력하게 구현하였다.
+```bash
+http://localhost:3000/sound/dog
+
+http://localhost:3000/sound/cat
+
+http://localhost:3000/sound/pig
+
+http://localhost:3000/sound/나
+```
+위와 같이 각각 다른 url을 브라우저에 입력하게 되면 아래와 같이 해당하는 동물에 대한 울음소리가 출력될 것이다.
+```bash
+"멍멍"
+
+"야옹"
+
+"꿀꿀"
+
+"알수없음!!"
+```
+
+## CORS이슈
+
+![Untitled](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/9429cb10-c414-4883-a025-e7cf97aea2f8/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20221230%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20221230T161437Z&X-Amz-Expires=86400&X-Amz-Signature=06be85b4e49dde4ca159e7b60e2bc8919752b0ff18b8ce476b1dd3ae9e31dd14&X-Amz-SignedHeaders=host&response-content-disposition=filename%3D%22Untitled.png%22&x-id=GetObject)
+
+HTML파일에서 node.js또는 다른서버에 request를 요청을 보냈을 때 서버에서는 이상한 곳 또는 위험한 요청이 올 수 있기 때문에 기본적으로 요청을 막게되어 있다. 그래서 HTML로 요청을 할때 CORS설정이 없으면 차단이 된다. 이것은 django에서 static파일을 s3로 storages를 연결할때도 발생했던 이슈이다. 이 이슈사항에 대한 것은 프로젝트 이슈사항을 정리할 때 다시 다뤄 보겠다.
+
+## 프론트 엔드 CORS 연결
+### COSR 모듈 설치 및 연결
+```bash
+# 명령어
+npm install cors
+```
+
+```javascript
+const express = require('express')
+const cors = require('cors')
+const app = express()
+const port = 3000
+
+app.use(cors())
+```
+위와 같이 require('cors')로 변수를 할당한 수 app.user(cors())로 하여 cors연결을 해결할 수 있게 코드를 작성하였다.
+
+### HTML request요청 화면 구현
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cors 이슈 해결</title>
+</head>
+<body>
+    <input type="text" id="name">
+    <button onclick="getSound()">API 요청</button>
+    <script>
+        function getSound() {
+            const name = document.getElementById('name').value
+            fetch(`http://localhost:3000/sound/${name}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                document.getElementById('name').value = data
+            })
+        }
+    </script>
+</body>
+</html>
+```
+위와 같이 input박스에 dog, cat, pig값을 입력했을 때 아까 위에서 작성한 서버 api로 fetch함수를 통해 요청을 보내게 스크립트를 작성했다. dog, cat, pig값에 따라 나오는 울음 소리가 다시 input박스에 값이 입력되게 구현해 보았다.
+
+![Untitled](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/d1b3463d-e612-4f1c-a9c2-42a578004038/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20221230%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20221230T163443Z&X-Amz-Expires=86400&X-Amz-Signature=e9c500d1c0cbc4eba955b84333c8e899b575933e606e9a6739eec663d903612a&X-Amz-SignedHeaders=host&response-content-disposition=filename%3D%22Untitled.png%22&x-id=GetObject)
+![Untitled](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/baca8376-f277-416c-9ad6-7dfb8bc61517/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20221230%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20221230T163513Z&X-Amz-Expires=86400&X-Amz-Signature=fc492d4ca1337dd90dedfceb7cecc72fc119991b318879da07e65a58e2dbca0f&X-Amz-SignedHeaders=host&response-content-disposition=filename%3D%22Untitled.png%22&x-id=GetObject)
+
+위와 같이 cat을 입력한 후 API 요청 버튼을 누르면 구현했던 라우팅에 대한 api 서버단을 거쳐서 야옹값을 받아 input에 렌더되는 것을 확인할 수 있다.
+
+<span style='color:orange;'>결과적으로 다른 HTML에서 요청을 보내도 CORS이슈가 발생되지 않는 것을 확인 하였다.</span>
