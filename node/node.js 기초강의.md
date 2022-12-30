@@ -1,6 +1,8 @@
 # Node.js 백엔드 기초강의
 이 기초강의 내용은 유튜브 조코딩 JoCoding님의 "한시간만에 Node.js 백엔드 기초 끝내기(ft. API구축)"이라는 제목을 가진 Node.js의 기본영상이다. 길이는 1시간 정도로 Node.js가 무엇이고 어떻게 사용되는지 알아보기 위해 부트캠프 수료식 가는 지하철에서 1시간정도 가볍게 봤었는데 Node.js를 시작하기 좋은 강의라 생각이 들어 다시 한번 시청하면서 강의 내용을 정리해 보려고 한다.
 
+![Untitled](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/57686108-9dbf-49bf-b65c-1eaaad82b2df/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20221230%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20221230T124258Z&X-Amz-Expires=86400&X-Amz-Signature=a03aeeae3c78250cc395c25e092d0b8e7c3dde0d00d868fc80c14460c199a397&X-Amz-SignedHeaders=host&response-content-disposition=filename%3D%22Untitled.png%22&x-id=GetObject)
+
 출처 : [조코딩 JoCoding -한시간만에 Node.js 백엔드 기초 끝내기(ft. API구축)](https://www.youtube.com/watch?v=Tt_tKhhhJqY)
 
 <br>
@@ -60,6 +62,10 @@ export NVM_DIR="$HOME/.nvm"
 
 ## nvm 설치 확인
 위의 과정이 끝났다면 nvm이 제대로 설치되었는지 확인해보자.
+```bash
+# 명령어
+% nvm --version
+```
 
 <br>
 
@@ -173,3 +179,186 @@ Hello world!
 
 [Done] exited with code=0 in 0.106 seconds
 ```
+
+위와 같이 실행결과를 확인하였다면 이제 node.js에서 javascript를 사용할 준비가 끝난 것이다.
+
+<br>
+
+## npm이란 무엇일까?
+
+![Untitled](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/d4541930-c8ec-494e-a052-78aa97433c16/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20221230%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20221230T124909Z&X-Amz-Expires=86400&X-Amz-Signature=365d7954f364eaa765b0d49747d63241af517d2709e545b174a3ce0ec9e8d4a3&X-Amz-SignedHeaders=host&response-content-disposition=filename%3D%22Untitled.png%22&x-id=GetObject)
+출처 : [npm 사이트](https://www.npmjs.com/)
+
+npm이란 "Node Package Manage"라고 하는 node 패키지 관리자라고 하는 필요한 툴을 다운받아 사용할 수 있는 사이트 이다.
+
+<br>
+
+![Untitled](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/a86712a6-41c1-41f3-a23d-b47c54c4bf87/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20221230%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20221230T125116Z&X-Amz-Expires=86400&X-Amz-Signature=23b01ed3aa98c872754709797f2816bb873f1851c34354b05c65edf77c750a4c&X-Amz-SignedHeaders=host&response-content-disposition=filename%3D%22Untitled.png%22&x-id=GetObject)
+출처 : [모듈 개수 통개](https://blog.humphd.org/howto-first-github-pr/)
+
+node에 이미 사용할 수 있는 모듈은 수도 없이 많은데 아래 통계를 보면 npm의 모듈 개수가 압도적으로 많은 것을 확인 할 수 있다.
+
+### figlet 사용하기 (임의 모듈 학습-건너띄어도 무관)
+figlet은 아래와 같이 텍스트를 이용하여 그림을 표현하는 "아스키 아트"라는 것을 사용하게 해주는 모듈이다. 해당 설명은 아래 그림과 같이 설치하는 명령어와 간단한 사용 코드가 나와 있으니 따라해 보자.
+
+![Untitled](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/38dfbc20-9595-4975-8d19-3b57cd10473c/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20221230%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20221230T125703Z&X-Amz-Expires=86400&X-Amz-Signature=995ea591fae6d87f47ee00da14c680da30ba3df5ecfd92ba61a681a891899a60&X-Amz-SignedHeaders=host&response-content-disposition=filename%3D%22Untitled.png%22&x-id=GetObject)|![Untitled](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/275fb759-547e-4b39-87f8-f7ce8591f3c1/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20221230%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20221230T130239Z&X-Amz-Expires=86400&X-Amz-Signature=e6cb636f46cd726341d0283f6690850d7654c6cf8cf33b976460e56e57e55b91&X-Amz-SignedHeaders=host&response-content-disposition=filename%3D%22Untitled.png%22&x-id=GetObject)
+--- | --- | 
+
+아래와 같이 index.js파일에 입력 후 실행시켜 보면 내가 입력한 문자열을 아스키 아트로 출력해 주는것을 볼 수 있다.
+```javascript
+var figlet = require('figlet');
+
+figlet('Hello World!!', function(err, data) {
+    if (err) {
+        console.log('Something went wrong...');
+        console.dir(err);
+        return;
+    }
+    console.log(data)
+});
+```
+
+```bash
+[Running] node "/Users/cjy/Desktop/Source/Jupyter/node/index.js"
+  _   _      _ _         _   _           _         _      __        __         _     _ _ _ 
+ | | | | ___| | | ___   | \ | | ___   __| | ___   (_)___  \ \      / /__  _ __| | __| | | |
+ | |_| |/ _ \ | |/ _ \  |  \| |/ _ \ / _` |/ _ \  | / __|  \ \ /\ / / _ \| '__| |/ _` | | |
+ |  _  |  __/ | | (_) | | |\  | (_) | (_| |  __/_ | \__ \   \ V  V / (_) | |  | | (_| |_|_|
+ |_| |_|\___|_|_|\___/  |_| \_|\___/ \__,_|\___(_)/ |___/    \_/\_/ \___/|_|  |_|\__,_(_|_)
+                                                |__/                                       
+
+[Done] exited with code=0 in 0.145 seconds
+```
+
+<br>
+
+## 다운로드 받은 모듈 정리
+사용자가 npm으로 다운받은 모듈을 정리해 주는 명령어이며 아래와 같이 입력하면 <span style='color:orange;'>package.json</span>파일이 생성된다. 또한 npm install [모듈명]으로 모듈을 설치하고 나면 <span style='color:orange;'>[프로젝트 폴더명]_modules</span>라는 폴더와 <span style='color:orange;'>package-lock.json</span>이 새로 생성이 되는데 package.json은 파일의 간략한 리스트를 보여준다면 package-lock.json은 다운로드한 모듈의 상세 정보가 들어있는 파일이다.
+```bash
+# 명령어
+npm init
+```
+```json
+// package.json
+{
+  "name": "node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
+```
+
+<br>
+
+## Express란 무엇인가?
+![Untitled](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/d3802ab7-3eb1-40e0-b161-1beecbe7eb04/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20221230%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20221230T133010Z&X-Amz-Expires=86400&X-Amz-Signature=d6b2c202a7da76d3fa069a4bd0dca1b7d42d804f222f368a5269160c650b224b&X-Amz-SignedHeaders=host&response-content-disposition=filename%3D%22Untitled.png%22&x-id=GetObject)
+Node.js 기반의 웹 프레임워크를 만드는 것이 Express모듈이라고 한다. 위와 같이 왼쪽의 웹 브라우저에서 요청한 request를 db와 그 외 처리 과정을 거친 후 웹브라우저로 응답 response를 주는 역할을 하는 것을 웹 프레임워크의 역할이라고 할 수 있다. 이런 역할을 하는 것이 Express이다.
+
+<br>
+
+## express 사용 하기
+```bash
+# 명령어
+npm install express
+```
+
+```javascript
+// index.js
+const express = require('express')
+const app = express()
+const port = 3000
+
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
+
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`)
+})
+```
+출처 : [expressjs](https://expressjs.com/ko/starter/hello-world.html)
+
+위와 같이 express를 설치한 후 npm사이트에 적혀있는 예제 코드를 index.js파일에 붙여 준 후 실행을 시켜보자. 처음에는 반응이 없을 것이다. 일단 코드를 설명하기 전에 브라우저에서 localhost:3000로 url을 입력하여 이동해 보자. 그러면 아래와 같이 브라우저가 이동하는 것을 볼 수 있을 것이다.
+![Untitled](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/8b84e681-f17a-4e00-b723-2876c7dffc79/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20221230%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20221230T134331Z&X-Amz-Expires=86400&X-Amz-Signature=c3b9171df361af18f984ae4850046b6301499e539f65de68364d14150e37ad07&X-Amz-SignedHeaders=host&response-content-disposition=filename%3D%22Untitled.png%22&x-id=GetObject)
+
+<br>
+
+### require
+```javascript
+const express = require('express')
+const app = express()
+```
+위의 내용은 require이라는 함수를 이용하여 설치한 express라는 모듈을 "express"라는 변수에 할당해 주는 코드이다.
+### port / listen
+```javascript
+const port = 3000
+
+app.listen(port, () => {
+        console.log(`Example app listening on port ${port}`)
+})
+```
+3000 이라는 번호로 접속할 수 있게 포트라는 것을 열어주기위해  포트값을 열어 준것이다.
+app.listen이라는 것을 통해 그 설정한 값을 받은 것이다. 이 listen은 항상 실행되고 있는 상태라고 생각을 하자.
+
+### get
+```javascript
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
+```
+위에는 express함수를 실행한 app이라는 객체에 get을 사용하였고, 이 안에 매개변수로 '/'와 (req, res) => { res.send('Hello World!') } 콜백함수를 넣어 주었다.
+1. <strong style='color:orange;'>get</strong> (HTTP 메소드)
+- HTTP 메소드로서 클라이언트에서 서버로 요청을 보낼때 사용하는 방식이며 get, post, delete, put... 등의 다양한 메소드가 존재한다.
+2. <strong style='color:orange;'>'/'</strong> (라우팅)
+- 위에서 설명한 열어준 port로 들어오는 다양한 api 경로를 의미한다.
+3. <strong style='color:orange;'>(req, res) => { res.send('Hello World!') }</strong> (콜백함수)
+- 끝나고 실행할 함수라고 이해하자.
+- [콜백함수란?](https://laagom.tistory.com/16)
+
+아까 위에서 localhost:3000으로 브라우저에 입력을하여 'Hello World!'가 나오는 페이지로 이동을 한것을 보았는데 이제 위의 코드가 브라우저에 어떠한 역할을 했는지 알 수 있을 것이다.
+
+<br>
+
+## api 별로 분기하여 라우팅 생성
+```javascript
+const express = require('express')
+const app = express()
+const port = 3000
+
+app.get('/', (req, res) => {
+    res.send('Hello World!')
+})
+
+app.get('/dog', (req, res) => {
+    res.send('멍멍')
+})
+
+app.get('/cat', (req, res) => {
+    res.send('<h1>야옹</h1>')
+})
+
+app.listen(port, () => {
+    console.log(`Example app listening on port ${port}`)
+})
+```
+위와 같은 코드를 작성하여 아래와 같이 라우팅을 나눠 보았다.<br>
+- '/'로 접속했을 때는 "Hello World!"<br>
+- '/dog'로 접속했을 때는 "멍멍"<br>
+- '/cat'로 접속했을 때는 "야옹'"<br>
+
+<h3 style='color:orange;'>Point!!</h3>
+'/cat'라우팅에서 html형식의 문자열을 보내면 화면에 h1 태그가 적용되며 화면에 출력되는 것을 확인 할 수 있을 것이다. 여기서 우리는 res.send()에 html도 사용이 가능한 사실을 알 수 있다.
+
+
+
+
+
+
+
+
+
