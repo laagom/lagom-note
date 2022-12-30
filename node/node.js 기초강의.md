@@ -535,6 +535,6 @@ app.use(cors())
 ![Untitled](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/d1b3463d-e612-4f1c-a9c2-42a578004038/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20221230%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20221230T163443Z&X-Amz-Expires=86400&X-Amz-Signature=e9c500d1c0cbc4eba955b84333c8e899b575933e606e9a6739eec663d903612a&X-Amz-SignedHeaders=host&response-content-disposition=filename%3D%22Untitled.png%22&x-id=GetObject)
 ![Untitled](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/baca8376-f277-416c-9ad6-7dfb8bc61517/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20221230%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20221230T163513Z&X-Amz-Expires=86400&X-Amz-Signature=fc492d4ca1337dd90dedfceb7cecc72fc119991b318879da07e65a58e2dbca0f&X-Amz-SignedHeaders=host&response-content-disposition=filename%3D%22Untitled.png%22&x-id=GetObject)
 
-위와 같이 cat을 입력한 후 API 요청 버튼을 누르면 구현했던 라우팅에 대한 api 서버단을 거쳐서 야옹값을 받아 input에 렌더되는 것을 확인할 수 있다.
+위와 같이 cat을 입력한 후 API 요청 버튼을 누르면 구현했던 라우팅에 대한 api 서버단을 거쳐서 야옹값을 받아 input에 랜더되는 것을 확인할 수 있다.
 
 <span style='color:orange;'>결과적으로 다른 HTML에서 요청을 보내도 CORS이슈가 발생되지 않는 것을 확인 하였다.</span>
