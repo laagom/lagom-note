@@ -1,4 +1,6 @@
 # [22.11.20] Try to apply generics DestroyAPIView
+[티스토리블로그](https://laagom.tistory.com/42)
+
 
 ## Generics View를 사용하지 않는 이유
 DRF로 서버단을 rest_framework가 지원해주는 generics View를 사용하지 않고 APIView만을 이용하여 프로젝트를 진행하기로 결정하였다. 그렇게 결정한 이유는 generics한 View를 사용하면 코드가 간결해지고 개발하기 편리해지긴 하지만 팀 프로젝트를 진행하며 그렇게 간결해지고 작동되는 로직을 파악하지 않고 무분별하게 사용하는 것을 우려하여 처음에는 자유롭게 customizing이 가능한 APIView를 사용하기로 했다.
@@ -7,8 +9,6 @@ DRF로 서버단을 rest_framework가 지원해주는 generics View를 사용하
 
 ## APIView로 작성된 Bulk Delete
 항목을 다중으로 삭제하기 위한 기능 개발을 위해 클라이언트 단에서 선택한 항목의 id(식별자)를 리스트로 전달하여 서버 단에서 받아 그 항목들을 모두 삭제하는 로직을 개발하였다.
-
-<br>
 
 ### 클라이언트 단
 ```javascript
@@ -126,8 +126,6 @@ class View:
 Delete 처리를할 때 rest_framework의 DestroyAPIView로 처리한다고 공식문서를 확인하여 이를 이용하여 로직을 변경해보려했다. 하지만 DestroyAPiView는 하나의 id(식별자)값만 path파라미터로 받아 처리를 해주는 클래스이기 때문에 bulk처리에는 적합하지 않았다. 그래서 bulk처리가 아닌 단일 삭제 처리 기능에서 DestroyAPIView를 적용해 보았다.<br>
 출처 : [DRF 공식문서](https://www.django-rest-framework.org/api-guide/generic-views/#destroyapiview)
 
-<br>
-
 ### 클라이언트 단
 ```javascript
 function deleteSite() {
@@ -200,6 +198,3 @@ class DestroyModelMixin:
         instance.delete()
 ```
 코드 작성을 하지 않고 처리가 되는 과정을 확인해 보기 위해 상속받은 DestroyAPIView를 확인해 보았다. DestroyAPIView가 또 다른 두개의 클래스 mixins.DestroyModelMixin와 GenericAPIView를 상속받고 있는데 삭제 처리가 작성되어 있는 DestroyModelMixin 클래스를 타고 들어가 확인해 보면 destroy내부 함수에 perform_destroy로 해당 인스턴스를 삭제하는 코드가 작성된 것을 확인 할 수 있다. 즉, 우리는 이 클래스를 우리가 작성해야하는 코드대신 그 안에서 작성된 처리 코드가 실행되어 처리된다는 것을 알 수 있다.
-
-
-
