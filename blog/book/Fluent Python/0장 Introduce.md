@@ -8,7 +8,7 @@
 <br>
 
 ## 목차
-1. [파이썬 데이터 모델]()
+1. [파이썬 데이터 모델](https://github.com/laagom/Lagom-note/blob/main/blog/book/Fluent%20Python/1%EC%9E%A5%20%ED%8C%8C%EC%9D%B4%EC%8D%AC%20%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EB%AA%A8%EB%8D%B8.md)
 2. 시퀀스
 3. 딕셔너리와 집합
 4. 텍스트와 바이트
