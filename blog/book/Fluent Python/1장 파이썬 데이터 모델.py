@@ -1,3 +1,5 @@
+
+### 1. FrenchDeck 클래스 구현
 import collections
 
 Card = collections.namedtuple('Card', ['rank', 'suit'])
@@ -47,3 +49,19 @@ def spades_high(card):
 
 for card in sorted(deck, key=spades_high):
     print(card)
+
+### 2. %r(Raw string) 구현
+
+from math import hypot
+class Vector():
+
+    def __init__(self, x=0, y=0):
+        self.x = x
+        self.y = y
+    
+    def __repr__(self):
+
+        return 'Vector(%r, %r)' % (self.x, self.y)
+
+vector = Vector(1, 2)
+print(repr(vector))
